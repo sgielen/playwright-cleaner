@@ -117,6 +117,9 @@ func handleFile(f *zip.File, writer *zip.Writer) error {
 			if _, err := fileWriter.Write(line); err != nil {
 				return err
 			}
+			if _, err := fileWriter.Write([]byte{'\n'}); err != nil {
+				return err
+			}
 			lineNum += 1
 		}
 		if err := scanner.Err(); err != nil {
