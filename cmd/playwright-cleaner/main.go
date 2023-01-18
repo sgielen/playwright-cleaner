@@ -103,7 +103,7 @@ func handleFile(f *zip.File, writer *zip.Writer) error {
 		}
 
 		scanner := bufio.NewScanner(fileReader)
-		scanner.Buffer(make([]byte, 64), 10*1024*1024*1024 /* 10 GB max line size, only allocated when necessary */)
+		scanner.Buffer(make([]byte, 64), 1*1024*1024*1024 /* 1 GB max line size, only allocated when necessary */)
 		lineNum := 1
 		for scanner.Scan() {
 			line := scanner.Bytes()
