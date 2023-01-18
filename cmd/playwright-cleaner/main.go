@@ -88,8 +88,6 @@ func cleanZipfile(inputFileName string) error {
 }
 
 func handleFile(f *zip.File, writer *zip.Writer) error {
-	log.Printf("file: name %q, size %v", f.Name, f.FileInfo().Size())
-
 	if f.Name == "trace.trace" {
 		fileReader, err := f.Open()
 		if err != nil {
